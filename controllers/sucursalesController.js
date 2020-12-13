@@ -23,7 +23,7 @@ module.exports = {
     sucursal: (req,res)=>{
         
         let sucursal = bd.filter(sucursales=>{
-            return sucursales.sucursal == req.params.sucursal;
+            return sucursales.sucursal.toLowerCase() == req.params.sucursal.toLowerCase();
         });
 
         if(sucursal[0] == undefined){
