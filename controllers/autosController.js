@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { createBrotliCompress } = require('zlib');
 const bd = JSON.parse(fs.readFileSync('./data/concesionarias.json','utf-8'));
 
 module.exports = {
@@ -31,7 +30,7 @@ module.exports = {
         let dato = req.params.dato;
 
         let cars = listado.filter(items=>{//filtramos las marcas que coincidan con el parametro ingresado en la url
-            return items.marca == marca;
+            return items.marca.toLowerCase() == marca.toLowerCase();
         })
 
         if(cars[0] == undefined){//si cars[0] es == undefined retorna el error
