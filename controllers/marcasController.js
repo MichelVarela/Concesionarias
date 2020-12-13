@@ -29,7 +29,7 @@ module.exports = {
         })
 
         let cars = marcasAutos.filter(items=>{//recorre el array de metodos de autos
-                return items.marca == req.params.marca;//me devuelve un array de autos que concidan con el req.params.marca, si no coincide me devuelve un array vacio
+                return items.marca.toLowerCase() == req.params.marca.toLowerCase();//me devuelve un array de autos que concidan con el req.params.marca, si no coincide me devuelve un array vacio
             })
 
         if(cars[0] == undefined){//si cars[0] es igual a undefined que devuelva un msj de error
